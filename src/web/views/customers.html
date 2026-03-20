@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers - Hotel AI</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f0f0f; color: #fff; }
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 280px; background: #1a1a1a; border-right: 1px solid #333; padding: 20px 0; }
+    .main-content { margin-left: 280px; padding: 32px; }
+    .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #888; text-decoration: none; border-radius: 8px; margin: 0 8px; }
+    .nav-link:hover, .nav-link.active { background: rgba(102, 126, 234, 0.15); color: #667eea; }
+    .card { background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .customer-card { background: #252525; border-radius: 10px; padding: 20px; }
+    .customer-card h4 { margin-bottom: 12px; font-size: 16px; }
+    .customer-card p { margin: 8px 0; color: #888; font-size: 14px; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge-vip { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+    .badge-regular { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div style="padding: 0 20px 20px; border-bottom: 1px solid #333; margin-bottom: 20px;">
+      <h2 style="font-size: 18px;">🏨 Hotel AI</h2>
+    </div>
+    <nav style="display: flex; flex-direction: column; gap: 4px;">
+      <a href="/dashboard" class="nav-link"><span>📊</span> Dashboard</a>
+      <a href="/chat" class="nav-link"><span>💬</span> Chat</a>
+      <a href="/bookings" class="nav-link"><span>📅</span> Bookings</a>
+      <a href="/rooms" class="nav-link"><span>🛏️</span> Rooms</a>
+      <a href="/customers" class="nav-link active"><span>👥</span> Customers</a>
+      <a href="/reports" class="nav-link"><span>📄</span> Reports</a>
+      <a href="/settings" class="nav-link"><span>⚙️</span> Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+      <h1 style="font-size: 24px;">👥 Customers</h1>
+      <button class="btn" style="padding: 10px 20px; background: #252525; border: 1px solid #333; border-radius: 8px; color: #fff; cursor: pointer;">➕ Add Customer</button>
+    </div>
+
+    <div class="grid" id="customers-grid">
+      <div style="color: #888; text-align: center;">Loading...</div>
+    </div>
+  </main>
+
+  <script>
+    async function loadCustomers() {
+      try {
+        const res = await fetch('/api/customers');
+        const data = await res.json();
+        const grid = document.getElementById('customers-grid');
+        
+        if (data.success && data.data.length > 0) {
+          grid.innerHTML = data.data.map(c => `
+            <div class="customer-card">
+              <h4>${c.name}</h4>
+              <p>📞 ${c.phone}</p>
+              <p>✉️ ${c.email || 'N/A'}</p>
+              <p>🏷️ <span class="badge badge-${c.status}">${c.status}</span></p>
+              <p>📊 Visits: ${c.visitCount || 0}</p>
+            </div>
+          `).join('');
+        } else {
+          grid.innerHTML = '<div style="color: #888; text-align: center;">No customers found</div>';
+        }
+      } catch (error) {
+        console.error('Error loading customers:', error);
+      }
+    }
+    loadCustomers();
+  </script>
+</body>
+</html>
