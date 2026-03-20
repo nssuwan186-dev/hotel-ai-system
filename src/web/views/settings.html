@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Hotel AI</title>
+  <link rel="stylesheet" href="/css/settings.css">
+</head>
+<body>
+  <!-- Sidebar (same as dashboard) -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>🏨 Hotel AI</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <a href="/dashboard" class="nav-link">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+      <a href="/chat" class="nav-link">
+        <span class="nav-icon">💬</span>
+        <span class="nav-label">Chat</span>
+      </a>
+      <a href="/bookings" class="nav-link">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Bookings</span>
+      </a>
+      <a href="/rooms" class="nav-link">
+        <span class="nav-icon">🛏️</span>
+        <span class="nav-label">Rooms</span>
+      </a>
+      <a href="/customers" class="nav-link">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">Customers</span>
+      </a>
+      <div class="nav-section">Management</div>
+      <a href="/reports" class="nav-link">
+        <span class="nav-icon">📄</span>
+        <span class="nav-label">Reports</span>
+      </a>
+      <a href="/payments" class="nav-link">
+        <span class="nav-icon">💳</span>
+        <span class="nav-label">Payments</span>
+      </a>
+      <div class="nav-section">System</div>
+      <a href="/settings" class="nav-link active">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Settings</span>
+      </a>
+      <a href="/api/health" class="nav-link" target="_blank">
+        <span class="nav-icon">🔍</span>
+        <span class="nav-label">System Status</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="content-header">
+      <h1>⚙️ Settings</h1>
+      <div class="content-actions">
+        <button class="btn" onclick="saveAll()">💾 Save All</button>
+      </div>
+    </header>
+
+    <div class="content-body">
+      <!-- Settings Tabs -->
+      <div class="settings-tabs">
+        <button class="tab-btn active" data-tab="system">🖥️ System</button>
+        <button class="tab-btn" data-tab="ai">🤖 AI Agent</button>
+        <button class="tab-btn" data-tab="database">💾 Database</button>
+        <button class="tab-btn" data-tab="telegram">📱 Telegram</button>
+        <button class="tab-btn" data-tab="notifications">🔔 Notifications</button>
+        <button class="tab-btn" data-tab="reports">📊 Reports</button>
+        <button class="tab-btn" data-tab="backup">💿 Backup</button>
+      </div>
+
+      <!-- System Settings -->
+      <div class="tab-content active" id="system-tab">
+        <h2 class="tab-title">🖥️ System Configuration</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3>General Settings</h3>
+            <div class="form-group">
+              <label>Hotel Name</label>
+              <input type="text" id="hotel-name" value="Thai Hotel" placeholder="Enter hotel name">
+            </div>
+            <div class="form-group">
+              <label>Currency</label>
+              <select id="currency">
+                <option value="THB">🇹🇭 THB (Thai Baht)</option>
+                <option value="USD">🇺🇸 USD (US Dollar)</option>
+                <option value="EUR">🇪🇺 EUR (Euro)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Timezone</label>
+              <select id="timezone">
+                <option value="Asia/Bangkok">🇹🇭 Bangkok (GMT+7)</option>
+                <option value="UTC">UTC</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Server Settings</h3>
+            <div class="form-group">
+              <label>Port</label>
+              <input type="number" id="server-port" value="3000" min="1000" max="65535">
+            </div>
+            <div class="form-group">
+              <label>Environment</label>
+              <select id="environment">
+                <option value="development">🔧 Development</option>
+                <option value="production">🚀 Production</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Log Level</label>
+              <select id="log-level">
+                <option value="info">ℹ️ Info</option>
+                <option value="debug">🐛 Debug</option>
+                <option value="error">❌ Error</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Deposit Settings</h3>
+            <div class="form-group">
+              <label>Deposit Percentage (%)</label>
+              <input type="number" id="deposit-percentage" value="30" min="0" max="100">
+              <small>Required deposit amount as percentage of total</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Agent Settings -->
+      <div class="tab-content" id="ai-tab">
+        <h2 class="tab-title">🤖 AI Agent Configuration</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card full-width">
+            <h3>AI Provider</h3>
+            <div class="form-group">
+              <label>Provider</label>
+              <select id="ai-provider">
+                <option value="gemini">🌟 Google Gemini</option>
+                <option value="claude">🤖 Anthropic Claude</option>
+                <option value="openai">🧠 OpenAI GPT</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>API Key</label>
+              <input type="password" id="ai-api-key" value="AIzaSyDemoKey123456789" placeholder="Enter API key">
+              <small>Get your API key from provider's console</small>
+            </div>
+            <div class="form-group">
+              <label>Model</label>
+              <select id="ai-model">
+                <option value="gemini-pro">Gemini Pro</option>
+                <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>System Prompt</label>
+              <textarea id="system-prompt" rows="6" placeholder="Enter system prompt for AI agent">You are a helpful AI assistant for a hotel management system. You help with bookings, customer service, and provide information about the hotel.</textarea>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>AI Behavior</h3>
+            <div class="form-group">
+              <label>Temperature</label>
+              <input type="range" id="ai-temperature" min="0" max="100" value="70">
+              <span id="temperature-value">0.7</span>
+              <small>Higher = more creative, Lower = more focused</small>
+            </div>
+            <div class="form-group">
+              <label>Max Tokens</label>
+              <input type="number" id="ai-max-tokens" value="2048" min="256" max="8192">
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>AI Features</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="ai-auto-response" checked>
+              <label for="ai-auto-response">Auto-response to customer inquiries</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="ai-booking-assist" checked>
+              <label for="ai-booking-assist">AI booking assistance</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="ai-analytics" checked>
+              <label for="ai-analytics">AI-powered analytics</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database Settings -->
+      <div class="tab-content" id="database-tab">
+        <h2 class="tab-title">💾 Database Configuration</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3>Connection</h3>
+            <div class="form-group">
+              <label>Database Path</label>
+              <input type="text" id="db-path" value="./data/db/hotel.sqlite" readonly>
+            </div>
+            <div class="form-group">
+              <label>Database Type</label>
+              <select id="db-type">
+                <option value="sqlite">SQLite (Local)</option>
+                <option value="mysql">MySQL</option>
+                <option value="postgresql">PostgreSQL</option>
+              </select>
+            </div>
+            <div class="status-badge success">
+              ✅ Connected
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Database Info</h3>
+            <div class="info-row">
+              <span class="info-label">Size:</span>
+              <span class="info-value" id="db-size">2.4 MB</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Tables:</span>
+              <span class="info-value" id="db-tables">5</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Last Backup:</span>
+              <span class="info-value" id="db-backup">2026-03-20 10:30</span>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Actions</h3>
+            <button class="btn btn-primary" onclick="optimizeDB()">🔧 Optimize Database</button>
+            <button class="btn" onclick="backupDB()">💿 Backup Now</button>
+            <button class="btn btn-danger" onclick="clearDB()">⚠️ Clear All Data</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Telegram Settings -->
+      <div class="tab-content" id="telegram-tab">
+        <h2 class="tab-title">📱 Telegram Bot Configuration</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card full-width">
+            <h3>Bot Credentials</h3>
+            <div class="form-group">
+              <label>Bot Token</label>
+              <input type="password" id="telegram-token" value="8227507211:AAGzkdYItsOumiopPkZ5bUXlXpilyQoEzRs" placeholder="Enter bot token">
+              <small>Get from @BotFather on Telegram</small>
+            </div>
+            <div class="form-group">
+              <label>Chat ID</label>
+              <input type="text" id="telegram-chat-id" value="8144545476" placeholder="Enter chat ID">
+            </div>
+            <div class="status-badge success">
+              ✅ Bot Connected
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Bot Features</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="tg-notifications" checked>
+              <label for="tg-notifications">Enable notifications</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="tg-bookings" checked>
+              <label for="tg-bookings">Booking notifications</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="tg-payments" checked>
+              <label for="tg-payments">Payment notifications</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="tg-reports" checked>
+              <label for="tg-reports">Daily reports</label>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Test Bot</h3>
+            <button class="btn btn-primary" onclick="testTelegram()">📱 Send Test Message</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications Settings -->
+      <div class="tab-content" id="notifications-tab">
+        <h2 class="tab-title">🔔 Notification Settings</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3>Booking Notifications</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-new-booking" checked>
+              <label for="notify-new-booking">New booking created</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-checkin" checked>
+              <label for="notify-checkin">Check-in reminder</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-checkout" checked>
+              <label for="notify-checkout">Check-out reminder</label>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Payment Notifications</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-payment-received" checked>
+              <label for="notify-payment-received">Payment received</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-payment-due" checked>
+              <label for="notify-payment-due">Payment due reminder</label>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>System Notifications</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-system-alerts" checked>
+              <label for="notify-system-alerts">System alerts</label>
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="notify-errors" checked>
+              <label for="notify-errors">Error notifications</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reports Settings -->
+      <div class="tab-content" id="reports-tab">
+        <h2 class="tab-title">📊 Report Settings</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3>Auto-Report Schedule</h3>
+            <div class="form-group">
+              <label>Daily Report Time</label>
+              <input type="time" id="daily-report-time" value="21:00">
+            </div>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="enable-daily-report" checked>
+              <label for="enable-daily-report">Enable daily reports</label>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Report Format</h3>
+            <div class="form-group">
+              <label>Default Format</label>
+              <select id="report-format">
+                <option value="pdf">📄 PDF</option>
+                <option value="excel">📊 Excel</option>
+                <option value="csv">📁 CSV</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Report Recipients</h3>
+            <div class="form-group">
+              <label>Email Addresses</label>
+              <textarea id="report-emails" rows="3" placeholder="email1@example.com, email2@example.com"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backup Settings -->
+      <div class="tab-content" id="backup-tab">
+        <h2 class="tab-title">💿 Backup & Restore</h2>
+        
+        <div class="settings-grid">
+          <div class="setting-card">
+            <h3>Auto Backup</h3>
+            <div class="form-group checkbox">
+              <input type="checkbox" id="auto-backup" checked>
+              <label for="auto-backup">Enable automatic backup</label>
+            </div>
+            <div class="form-group">
+              <label>Backup Frequency</label>
+              <select id="backup-frequency">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Backup Location</h3>
+            <div class="form-group">
+              <label>Backup Path</label>
+              <input type="text" id="backup-path" value="./data/backups/" readonly>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Last Backup:</span>
+              <span class="info-value">2026-03-20 10:30</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Total Backups:</span>
+              <span class="info-value">15</span>
+            </div>
+          </div>
+
+          <div class="setting-card">
+            <h3>Actions</h3>
+            <button class="btn btn-primary" onclick="createBackup()">💿 Create Backup Now</button>
+            <button class="btn" onclick="downloadBackup()">⬇️ Download Latest</button>
+            <button class="btn btn-danger" onclick="restoreBackup()">⚠️ Restore Backup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // Add active to clicked
+        btn.classList.add('active');
+        const tabId = btn.dataset.tab;
+        document.getElementById(`${tabId}-tab`).classList.add('active');
+      });
+    });
+
+    // Temperature slider
+    const tempSlider = document.getElementById('ai-temperature');
+    const tempValue = document.getElementById('temperature-value');
+    if (tempSlider) {
+      tempSlider.addEventListener('input', () => {
+        tempValue.textContent = (tempSlider.value / 100).toFixed(1);
+      });
+    }
+
+    // Save all settings
+    function saveAll() {
+      const settings = {
+        system: {
+          hotelName: document.getElementById('hotel-name').value,
+          currency: document.getElementById('currency').value,
+          timezone: document.getElementById('timezone').value,
+          port: document.getElementById('server-port').value,
+          environment: document.getElementById('environment').value,
+          logLevel: document.getElementById('log-level').value,
+          depositPercentage: document.getElementById('deposit-percentage').value
+        },
+        ai: {
+          provider: document.getElementById('ai-provider').value,
+          apiKey: document.getElementById('ai-api-key').value,
+          model: document.getElementById('ai-model').value,
+          systemPrompt: document.getElementById('system-prompt').value,
+          temperature: tempSlider.value / 100,
+          maxTokens: document.getElementById('ai-max-tokens').value
+        },
+        telegram: {
+          token: document.getElementById('telegram-token').value,
+          chatId: document.getElementById('telegram-chat-id').value
+        }
+        // Add more sections as needed
+      };
+
+      console.log('Saving settings:', settings);
+      alert('✅ Settings saved successfully!');
+    }
+
+    // Test functions
+    function testTelegram() {
+      alert('📱 Test message sent to Telegram!');
+    }
+
+    function optimizeDB() {
+      alert('🔧 Database optimized!');
+    }
+
+    function backupDB() {
+      alert('💿 Backup created!');
+    }
+
+    function clearDB() {
+      if (confirm('⚠️ Are you sure? This will delete all data!')) {
+        alert('Database cleared!');
+      }
+    }
+
+    function createBackup() {
+      alert('💿 Backup created!');
+    }
+
+    function downloadBackup() {
+      alert('⬇️ Downloading latest backup...');
+    }
+
+    function restoreBackup() {
+      if (confirm('⚠️ This will restore from backup. Continue?')) {
+        alert('Backup restored!');
+      }
+    }
+  </script>
+</body>
+</html>

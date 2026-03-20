@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel AI Dashboard</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --bg-tertiary: #252525;
+      --border: #333;
+      --text: #fff;
+      --text-muted: #888;
+      --accent: #667eea;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .refresh-btn {
+      padding: 8px 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .refresh-btn:hover {
+      background: var(--bg);
+    }
+
+    /* Main Content */
+    .main {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Hero Metrics */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .metric-card h3 {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .metric-value {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .metric-change {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .metric-change.positive { color: var(--success); }
+    .metric-change.negative { color: var(--danger); }
+
+    /* Account Strip */
+    .account-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .account-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .account-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .account-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .account-status {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .status-active {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--success);
+    }
+
+    .account-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .account-metric {
+      padding: 12px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+    }
+
+    .account-metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .account-metric-value {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Occupancy Section */
+    .section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      height: 24px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      transition: width 0.5s;
+    }
+
+    /* Room Grid */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .room-card {
+      padding: 16px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .room-card:hover {
+      background: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    .room-number {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .room-type {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .room-status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .status-available {
+      background: rgba(34, 197, 94, 0.2);
+      color: var(--success);
+    }
+
+    .status-occupied {
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+    }
+
+    /* Activity Feed */
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+    }
+
+    .activity-icon {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+    }
+
+    .activity-info {
+      flex: 1;
+    }
+
+    .activity-label {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .activity-value {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-item.active {
+      color: var(--accent);
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    .nav-icon {
+      font-size: 20px;
+    }
+
+    .nav-label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header { padding: 12px 16px; }
+      .main { padding: 16px; }
+      .hero-metrics { grid-template-columns: 1fr; }
+      .account-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>🏨 Hotel AI Dashboard</h1>
+    <div class="header-actions">
+      <span id="last-update" style="color: var(--text-muted); font-size: 12px;"></span>
+      <button class="refresh-btn" onclick="refreshData()">🔄 Refresh</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Metrics -->
+    <div class="hero-metrics">
+      <div class="metric-card">
+        <h3>รายรับรวม</h3>
+        <div class="metric-value" id="total-revenue">฿0</div>
+        <div class="metric-change positive" id="revenue-change">↑ 0%</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>รายจ่ายรวม</h3>
+        <div class="metric-value" id="total-expense">฿0</div>
+        <div class="metric-change negative" id="expense-change">↓ 0%</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>กำไรสุทธิ</h3>
+        <div class="metric-value" id="net-profit">฿0</div>
+        <div class="metric-change positive" id="profit-change">↑ 0%</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>อัตราการเข้าพัก</h3>
+        <div class="metric-value" id="occupancy-rate">0%</div>
+        <div class="metric-change" id="occupancy-change">0 ห้อง</div>
+      </div>
+    </div>
+
+    <!-- Account Strip (Rooms Overview) -->
+    <div class="account-strip">
+      <div class="account-card">
+        <div class="account-header">
+          <span class="account-name">🛏️ ห้องพัก</span>
+          <span class="account-status status-active">Active</span>
+        </div>
+        <div class="account-metrics">
+          <div class="account-metric">
+            <div class="account-metric-label">ห้องทั้งหมด</div>
+            <div class="account-metric-value" id="total-rooms">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">ห้องว่าง</div>
+            <div class="account-metric-value" id="available-rooms">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">เข้าพัก</div>
+            <div class="account-metric-value" id="occupied-rooms">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">รายได้วันนี้</div>
+            <div class="account-metric-value" id="today-revenue">฿0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="account-card">
+        <div class="account-header">
+          <span class="account-name">👥 ลูกค้า</span>
+          <span class="account-status status-active">Active</span>
+        </div>
+        <div class="account-metrics">
+          <div class="account-metric">
+            <div class="account-metric-label">ลูกค้าทั้งหมด</div>
+            <div class="account-metric-value" id="total-customers">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">VIP</div>
+            <div class="account-metric-value" id="vip-customers">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">Check-in วันนี้</div>
+            <div class="account-metric-value" id="today-checkin">0</div>
+          </div>
+          <div class="account-metric">
+            <div class="account-metric-label">Check-out วันนี้</div>
+            <div class="account-metric-value" id="today-checkout">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Occupancy Progress -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">📊 อัตราการเข้าพัก</h2>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="occupancy-bar" style="width: 0%;">
+          <span id="occupancy-text">0%</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 14px;">
+        <span>ห้องว่าง: <strong id="rooms-available-text">0</strong></span>
+        <span>ห้องเข้าพัก: <strong id="rooms-occupied-text">0</strong></span>
+      </div>
+    </div>
+
+    <!-- Room Grid -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">🏠 สถานะห้องพัก</h2>
+      </div>
+      <div class="room-grid" id="room-grid">
+        <!-- Rooms will be populated here -->
+      </div>
+    </div>
+
+    <!-- Today's Activity -->
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">📅 กิจกรรมวันนี้</h2>
+      </div>
+      <div class="activity-feed" id="activity-feed">
+        <div class="activity-item">
+          <div class="activity-icon">✅</div>
+          <div class="activity-info">
+            <div class="activity-label">Check-in</div>
+            <div class="activity-value" id="activity-checkin">0 รายการ</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🚶</div>
+          <div class="activity-info">
+            <div class="activity-label">Check-out</div>
+            <div class="activity-value" id="activity-checkout">0 รายการ</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🔄</div>
+          <div class="activity-info">
+            <div class="activity-label">พักต่อ</div>
+            <div class="activity-value" id="activity-extension">0 รายการ</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">💳</div>
+          <div class="activity-info">
+            <div class="activity-label">ชำระเงิน</div>
+            <div class="activity-value" id="activity-payment">฿0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="/dashboard" class="nav-item active">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">แดชบอร์ด</span>
+    </a>
+    <a href="/chat" class="nav-item">
+      <span class="nav-icon">💬</span>
+      <span class="nav-label">แชท</span>
+    </a>
+    <a href="/reports" class="nav-item">
+      <span class="nav-icon">📄</span>
+      <span class="nav-label">รายงาน</span>
+    </a>
+    <a href="/settings" class="nav-item">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">ตั้งค่า</span>
+    </a>
+  </nav>
+
+  <script>
+    // Fetch and update dashboard data
+    async function refreshData() {
+      try {
+        // Fetch rooms
+        const roomsRes = await fetch('/api/rooms');
+        const roomsData = await roomsRes.json();
+        
+        if (roomsData.success) {
+          const rooms = roomsData.data;
+          const totalRooms = rooms.length;
+          const availableRooms = rooms.filter(r => r.status === 'available').length;
+          const occupiedRooms = rooms.filter(r => r.status === 'occupied').length;
+          const occupancyRate = totalRooms > 0 ? Math.round((occupiedRooms / totalRooms) * 100) : 0;
+
+          // Update metrics
+          document.getElementById('total-rooms').textContent = totalRooms;
+          document.getElementById('available-rooms').textContent = availableRooms;
+          document.getElementById('occupied-rooms').textContent = occupiedRooms;
+          document.getElementById('occupancy-rate').textContent = `${occupancyRate}%`;
+          document.getElementById('occupancy-bar').style.width = `${occupancyRate}%`;
+          document.getElementById('occupancy-text').textContent = `${occupancyRate}%`;
+          document.getElementById('rooms-available-text').textContent = availableRooms;
+          document.getElementById('rooms-occupied-text').textContent = occupiedRooms;
+
+          // Update room grid
+          const roomGrid = document.getElementById('room-grid');
+          roomGrid.innerHTML = rooms.map(room => `
+            <div class="room-card">
+              <div class="room-number">${room.roomNumber}</div>
+              <div class="room-type">${room.type}</div>
+              <span class="room-status ${room.status === 'available' ? 'status-available' : 'status-occupied'}">
+                ${room.status === 'available' ? 'ว่าง' : 'เข้าพัก'}
+              </span>
+            </div>
+          `).join('');
+        }
+
+        // Fetch customers
+        const customersRes = await fetch('/api/customers');
+        const customersData = await customersRes.json();
+        
+        if (customersData.success) {
+          const customers = customersData.data;
+          document.getElementById('total-customers').textContent = customers.length;
+          document.getElementById('vip-customers').textContent = customers.filter(c => c.status === 'vip').length;
+        }
+
+        // Simulate revenue data (replace with actual API call)
+        const totalRevenue = Math.floor(Math.random() * 100000) + 50000;
+        const totalExpense = Math.floor(Math.random() * 30000) + 10000;
+        const netProfit = totalRevenue - totalExpense;
+
+        document.getElementById('total-revenue').textContent = `฿${totalRevenue.toLocaleString()}`;
+        document.getElementById('total-expense').textContent = `฿${totalExpense.toLocaleString()}`;
+        document.getElementById('net-profit').textContent = `฿${netProfit.toLocaleString()}`;
+        document.getElementById('today-revenue').textContent = `฿${Math.floor(totalRevenue / 10).toLocaleString()}`;
+
+        // Update timestamp
+        document.getElementById('last-update').textContent = `Updated: ${new Date().toLocaleTimeString('th-TH')}`;
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    // Initial load
+    refreshData();
+
+    // Auto-refresh every 30 seconds
+    setInterval(refreshData, 30000);
+  </script>
+</body>
+</html>

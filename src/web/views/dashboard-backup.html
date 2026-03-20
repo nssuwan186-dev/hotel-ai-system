@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel AI Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Header -->
+    <header class="header">
+      <h1>🏨 Hotel AI Dashboard</h1>
+      <div class="header-info">
+        <span id="current-date"></span>
+      </div>
+    </header>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+      <div class="card revenue">
+        <div class="card-icon">💰</div>
+        <div class="card-content">
+          <h3>รายรับรวม</h3>
+          <p class="amount" id="total-revenue">฿0</p>
+          <span class="change positive">↑ 12%</span>
+        </div>
+      </div>
+
+      <div class="card expense">
+        <div class="card-icon">💸</div>
+        <div class="card-content">
+          <h3>รายจ่ายรวม</h3>
+          <p class="amount" id="total-expense">฿0</p>
+          <span class="change negative">↓ 5%</span>
+        </div>
+      </div>
+
+      <div class="card profit">
+        <div class="card-icon">📊</div>
+        <div class="card-content">
+          <h3>กำไรสุทธิ</h3>
+          <p class="amount" id="net-profit">฿0</p>
+          <span class="change positive">↑ 8%</span>
+        </div>
+      </div>
+
+      <div class="card rooms">
+        <div class="card-icon">🛏️</div>
+        <div class="card-content">
+          <h3>ห้องเข้าพัก</h3>
+          <p class="amount" id="occupied-rooms">0/0</p>
+          <span class="change">Occupancy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Stats -->
+    <div class="stats-grid">
+      <!-- Occupancy Rate -->
+      <div class="stat-card">
+        <h3>📈 อัตราการเข้าพัก</h3>
+        <div class="progress-container">
+          <div class="progress-bar" id="occupancy-bar">
+            <span class="progress-text" id="occupancy-text">0%</span>
+          </div>
+        </div>
+        <div class="stat-details">
+          <div class="detail-item">
+            <span class="label">ห้องทั้งหมด</span>
+            <span class="value" id="total-rooms">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">ห้องว่าง</span>
+            <span class="value" id="available-rooms">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">เข้าพัก</span>
+            <span class="value" id="checked-in">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Activity -->
+      <div class="stat-card">
+        <h3>📅 กิจกรรมวันนี้</h3>
+        <div class="activity-list" id="today-activity">
+          <div class="activity-item">
+            <span class="activity-icon">✅</span>
+            <div class="activity-info">
+              <span class="activity-label">Check-in</span>
+              <span class="activity-value" id="today-checkin">0</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">🚶</span>
+            <div class="activity-info">
+              <span class="activity-label">Check-out</span>
+              <span class="activity-value" id="today-checkout">0</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">🔄</span>
+            <div class="activity-info">
+              <span class="activity-label">พักต่อ</span>
+              <span class="activity-value" id="today-extension">0</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">💳</span>
+            <div class="activity-info">
+              <span class="activity-label">ชำระเงิน</span>
+              <span class="activity-value" id="today-payment">฿0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Bookings -->
+      <div class="stat-card">
+        <h3>📋 การจองล่าสุด</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ลูกค้า</th>
+                <th>ห้อง</th>
+                <th>สถานะ</th>
+                <th>ยอดเงิน</th>
+              </tr>
+            </thead>
+            <tbody id="recent-bookings">
+              <tr>
+                <td colspan="4" class="empty-state">ไม่มีข้อมูล</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Revenue Chart -->
+      <div class="stat-card">
+        <h3>📊 รายได้ 7 วันล่าสุด</h3>
+        <div class="chart-container">
+          <canvas id="revenue-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div class="notifications-panel">
+      <h3>🔔 การแจ้งเตือน</h3>
+      <div class="notifications-list" id="notifications-list">
+        <div class="notification-item">
+          <span class="notification-icon">ℹ️</span>
+          <div class="notification-content">
+            <span class="notification-text">กำลังโหลดการแจ้งเตือน...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="/dashboard" class="nav-item active">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">แดชบอร์ด</span>
+    </a>
+    <a href="/chat" class="nav-item">
+      <span class="nav-icon">💬</span>
+      <span class="nav-label">แชท</span>
+    </a>
+  </nav>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
