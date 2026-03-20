@@ -1,0 +1,595 @@
+# 🔍 DATA DISCOVERY TOOL - COMPLETE PACKAGE
+
+---
+
+## 📦 SCRIPTS (Copy แล้วสร้างไฟล์)
+
+### **Script 1: src/tools/search-files.ts**
+
+```typescript
+import { spawn } from 'child_process';
+
+async function executeGwsCommand(command: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const process = spawn('sh', ['-c', command]);
+    let output = '';
+
+    process.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    process.on('close', (code) => {
+      if (code === 0) {
+        try {
+          const match = output.match(/\{[\s\S]*\}/);
+          resolve(match ? JSON.parse(match[0]) : { raw: output });
+        } catch {
+          resolve({ raw: output });
+        }
+      } else {
+        reject(new Error('gws command failed'));
+      }
+    });
+  });
+}
+
+async function searchAllFiles() {
+  console.log('\n╔════════════════════════════════════════╗');
+  console.log('║      DATA DISCOVERY - SEARCH           ║');
+  console.log('╚════════════════════════════════════════╝\n');
+
+  try {
+    console.log('📊 Searching Google Sheets...\n');
+
+    const sheetsCmd =
+      "gws drive files list --params '{\"pageSize\": 100, \"q\": \"mimeType=\\\"application/vnd.google-apps.spreadsheet\\\"\"}' 2>/dev/null";
+    const sheets = await executeGwsCommand(sheetsCmd);
+
+    if (sheets.files && sheets.files.length > 0) {
+      sheets.files.forEach((file: any, idx: number) => {
+        console.log(`  ${idx + 1}. ${file.name}`);
+        console.log(`     📌 ID: ${file.id}`);
+        console.log(`     📅 Modified: ${file.modifiedTime || 'N/A'}\n`);
+      });
+      console.log(`✅ Found ${sheets.files.length} Google Sheets\n`);
+    }
+
+    console.log('📈 Searching Excel Files...\n');
+
+    const excelCmd =
+      "gws drive files list --params '{\"pageSize\": 100, \"q\": \"mimeType=\\\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\\\"\"}' 2>/dev/null";
+    const excels = await executeGwsCommand(excelCmd);
+
+    if (excels.files && excels.files.length > 0) {
+      excels.files.forEach((file: any, idx: number) => {
+        console.log(`  ${idx + 1}. ${file.name}`);
+        console.log(`     📌 ID: ${file.id}`);
+        console.log(`     📅 Modified: ${file.modifiedTime || 'N/A'}\n`);
+      });
+      console.log(`✅ Found ${excels.files.length} Excel Files\n`);
+    }
+
+    console.log('═'.repeat(50));
+    const total = (sheets.files?.length || 0) + (excels.files?.length || 0);
+    console.log(`✅ TOTAL FILES: ${total}\n`);
+  } catch (error) {
+    console.error('❌ Search failed:', error);
+  }
+}
+
+searchAllFiles();
+```
+
+---
+
+### **Script 2: src/tools/organize-files.ts**
+
+```typescript
+import { spawn } from 'child_process';
+import * as fs from 'fs';
+
+interface FileInfo {
+  id: string;
+  name: string;
+  type: string;
+  category: string;
+  modified: string;
+}
+
+function classifyFile(fileName: string): string {
+  const lower = fileName.toLowerCase();
+
+  if (lower.includes('customer') || lower.includes('guest') || lower.includes('contact'))
+    return '👤 CUSTOMERS';
+  if (
+    lower.includes('room') ||
+    lower.includes('accommodation') ||
+    lower.includes('suite') ||
+    lower.includes('400')
+  )
+    return '🛏️ ROOMS';
+  if (lower.includes('booking') || lower.includes('reservation'))
+    return '📅 BOOKINGS';
+  if (lower.includes('payment') || lower.includes('invoice') || lower.includes('receipt'))
+    return '💰 PAYMENTS';
+  if (lower.includes('transaction') || lower.includes('financial') || lower.includes('accounting'))
+    return '📊 TRANSACTIONS';
+
+  return '❓ OTHER';
+}
+
+async function executeGwsCommand(command: string): Promise<any> {
+  return new Promise((resolve) => {
+    const process = spawn('sh', ['-c', command]);
+    let output = '';
+
+    process.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    process.on('close', () => {
+      try {
+        const match = output.match(/\{[\s\S]*\}/);
+        resolve(match ? JSON.parse(match[0]) : { files: [] });
+      } catch {
+        resolve({ files: [] });
+      }
+    });
+  });
+}
+
+async function organizeFiles() {
+  console.log('\n╔════════════════════════════════════════╗');
+  console.log('║    DATA ORGANIZATION - CLASSIFY       ║');
+  console.log('╚════════════════════════════════════════╝\n');
+
+  const organized: { [key: string]: FileInfo[] } = {
+    '👤 CUSTOMERS': [],
+    '🛏️ ROOMS': [],
+    '📅 BOOKINGS': [],
+    '💰 PAYMENTS': [],
+    '📊 TRANSACTIONS': [],
+    '❓ OTHER': [],
+  };
+
+  try {
+    // Get sheets
+    const sheetsCmd =
+      "gws drive files list --params '{\"pageSize\": 100, \"q\": \"mimeType=\\\"application/vnd.google-apps.spreadsheet\\\"\"}' 2>/dev/null";
+    const sheets = await executeGwsCommand(sheetsCmd);
+
+    if (sheets.files) {
+      sheets.files.forEach((file: any) => {
+        const category = classifyFile(file.name);
+        organized[category].push({
+          id: file.id,
+          name: file.name,
+          type: 'Google Sheet',
+          category,
+          modified: file.modifiedTime || 'N/A',
+        });
+      });
+    }
+
+    // Get excels
+    const excelCmd =
+      "gws drive files list --params '{\"pageSize\": 100, \"q\": \"mimeType=\\\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\\\"\"}' 2>/dev/null";
+    const excels = await executeGwsCommand(excelCmd);
+
+    if (excels.files) {
+      excels.files.forEach((file: any) => {
+        const category = classifyFile(file.name);
+        organized[category].push({
+          id: file.id,
+          name: file.name,
+          type: 'Excel',
+          category,
+          modified: file.modifiedTime || 'N/A',
+        });
+      });
+    }
+
+    // Print
+    console.log('FILES BY CATEGORY:\n');
+
+    for (const [category, files] of Object.entries(organized)) {
+      if (files.length > 0) {
+        console.log(`${category}`);
+        console.log('─'.repeat(50));
+        files.forEach((file, i) => {
+          console.log(`  ${i + 1}. ${file.name}`);
+          console.log(`     Type: ${file.type}`);
+          console.log(`     ID: ${file.id}\n`);
+        });
+      }
+    }
+
+    // Save inventory
+    fs.writeFileSync('file-inventory.json', JSON.stringify(organized, null, 2));
+    console.log('✅ Saved: file-inventory.json\n');
+  } catch (error) {
+    console.error('❌ Error:', error);
+  }
+}
+
+organizeFiles();
+```
+
+---
+
+### **Script 3: src/tools/preview-data.ts**
+
+```typescript
+import { spawn } from 'child_process';
+import * as readline from 'readline';
+
+async function getSheetData(spreadsheetId: string): Promise<any> {
+  return new Promise((resolve) => {
+    const cmd = `gws sheets spreadsheets values get --params '{"spreadsheetId": "${spreadsheetId}", "range": "A1:Z50"}' 2>/dev/null`;
+    const process = spawn('sh', ['-c', cmd]);
+    let output = '';
+
+    process.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    process.on('close', () => {
+      try {
+        const match = output.match(/\{[\s\S]*\}/);
+        resolve(match ? JSON.parse(match[0]) : { values: [] });
+      } catch {
+        resolve({ values: [] });
+      }
+    });
+  });
+}
+
+async function previewFile(fileId: string, fileName: string) {
+  console.log('\n' + '='.repeat(60));
+  console.log(`PREVIEW: ${fileName}`);
+  console.log('='.repeat(60) + '\n');
+
+  const data = await getSheetData(fileId);
+
+  if (!data.values || data.values.length === 0) {
+    console.log('❌ No data found\n');
+    return;
+  }
+
+  const headers = data.values[0];
+  const dataRows = data.values.slice(1).filter((row: any[]) => row.some((cell) => cell));
+
+  console.log('📋 COLUMNS:');
+  headers.forEach((h: string, i: number) => {
+    console.log(`  ${i + 1}. ${h}`);
+  });
+
+  console.log(`\n📊 SAMPLE DATA (${dataRows.length} records):\n`);
+
+  const sample = dataRows.slice(0, 5);
+  console.log('┌─' + headers.map(() => '─'.repeat(18)).join('─┬─') + '─┐');
+  console.log('│ ' + headers.map((h: string) => h.substring(0, 18).padEnd(18)).join(' │ ') + ' │');
+  console.log('├─' + headers.map(() => '─'.repeat(18)).join('─┼─') + '─┤');
+
+  sample.forEach((row: any[]) => {
+    console.log(
+      '│ ' + headers.map((_, i) => (row[i] || '').toString().substring(0, 18).padEnd(18)).join(' │ ') + ' │'
+    );
+  });
+
+  console.log('└─' + headers.map(() => '─'.repeat(18)).join('─┴─') + '─┘');
+  console.log(`\n✅ Columns: ${headers.length}, Records: ${dataRows.length}\n`);
+}
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function menu() {
+  console.log('\n📊 DATA PREVIEW TOOL');
+  console.log('─'.repeat(50));
+  console.log('Enter File ID to preview (or "exit" to quit):\n');
+
+  rl.question('File ID: ', async (fileId) => {
+    if (fileId.toLowerCase() === 'exit') {
+      rl.close();
+      return;
+    }
+
+    rl.question('File Name: ', async (fileName) => {
+      await previewFile(fileId, fileName);
+      menu();
+    });
+  });
+}
+
+menu();
+```
+
+---
+
+### **Script 4: src/tools/generate-report.ts**
+
+```typescript
+import { spawn } from 'child_process';
+import * as fs from 'fs';
+
+interface FileDetail {
+  name: string;
+  id: string;
+  type: string;
+  columns: number;
+  records: number;
+  columnNames: string[];
+}
+
+function classifyFile(name: string): string {
+  const lower = name.toLowerCase();
+  if (lower.includes('customer') || lower.includes('guest')) return '👤 CUSTOMERS';
+  if (lower.includes('room') || lower.includes('400')) return '🛏️ ROOMS';
+  if (lower.includes('booking')) return '📅 BOOKINGS';
+  if (lower.includes('payment') || lower.includes('invoice')) return '💰 PAYMENTS';
+  return '❓ OTHER';
+}
+
+async function executeGwsCommand(command: string): Promise<any> {
+  return new Promise((resolve) => {
+    const process = spawn('sh', ['-c', command]);
+    let output = '';
+
+    process.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    process.on('close', () => {
+      try {
+        const match = output.match(/\{[\s\S]*\}/);
+        resolve(match ? JSON.parse(match[0]) : {});
+      } catch {
+        resolve({});
+      }
+    });
+  });
+}
+
+async function generateReport() {
+  console.log('\n╔════════════════════════════════════════╗');
+  console.log('║      DATA DISCOVERY - REPORT           ║');
+  console.log('╚════════════════════════════════════════╝\n');
+
+  const files: { [key: string]: FileDetail[] } = {
+    '👤 CUSTOMERS': [],
+    '🛏️ ROOMS': [],
+    '📅 BOOKINGS': [],
+    '💰 PAYMENTS': [],
+    '❓ OTHER': [],
+  };
+
+  let totalRecords = 0;
+  let totalFiles = 0;
+
+  try {
+    // Get sheets
+    const sheetsCmd =
+      "gws drive files list --params '{\"pageSize\": 100, \"q\": \"mimeType=\\\"application/vnd.google-apps.spreadsheet\\\"\"}' 2>/dev/null";
+    const sheets = await executeGwsCommand(sheetsCmd);
+
+    console.log('📊 Analyzing files...\n');
+
+    if (sheets.files) {
+      for (const file of sheets.files.slice(0, 20)) {
+        try {
+          const dataCmd = `gws sheets spreadsheets values get --params '{"spreadsheetId": "${file.id}", "range": "A1:Z10000"}' 2>/dev/null`;
+          const data = await executeGwsCommand(dataCmd);
+
+          if (data.values) {
+            const headers = data.values[0] || [];
+            const records = data.values.slice(1).filter((r: any[]) => r.some((c) => c)).length;
+
+            const category = classifyFile(file.name);
+            files[category].push({
+              name: file.name,
+              id: file.id,
+              type: 'Google Sheet',
+              columns: headers.length,
+              records,
+              columnNames: headers,
+            });
+
+            totalRecords += records;
+            totalFiles++;
+
+            console.log(`✅ ${file.name} (${records} records)`);
+          }
+        } catch (error) {
+          console.log(`⚠️  Skipped: ${file.name}`);
+        }
+      }
+    }
+
+    // Generate text report
+    let report = '';
+    report += '═'.repeat(60) + '\n';
+    report += '           DATA DISCOVERY REPORT\n';
+    report += '═'.repeat(60) + '\n\n';
+    report += `Generated: ${new Date().toLocaleString()}\n\n`;
+
+    report += '📊 SUMMARY\n';
+    report += '─'.repeat(60) + '\n';
+    report += `Total Files: ${totalFiles}\n`;
+    report += `Total Records: ${totalRecords.toLocaleString()}\n\n`;
+
+    for (const [category, items] of Object.entries(files)) {
+      if (items.length > 0) {
+        report += `${category}\n`;
+        report += '─'.repeat(60) + '\n';
+        items.forEach((file) => {
+          report += `\n  • ${file.name}\n`;
+          report += `    ID: ${file.id}\n`;
+          report += `    Columns: ${file.columns}, Records: ${file.records.toLocaleString()}\n`;
+          report += `    Fields: ${file.columnNames.join(', ')}\n`;
+        });
+        report += '\n';
+      }
+    }
+
+    report += '═'.repeat(60) + '\n';
+
+    // Save reports
+    fs.writeFileSync('data-discovery-report.txt', report);
+    fs.writeFileSync('data-discovery-report.json', JSON.stringify(files, null, 2));
+
+    console.log('\n✅ Reports generated:');
+    console.log('   - data-discovery-report.txt (readable)');
+    console.log('   - data-discovery-report.json (machine-readable)\n');
+  } catch (error) {
+    console.error('❌ Error:', error);
+  }
+}
+
+generateReport();
+```
+
+---
+
+## 📝 SETUP GUIDE
+
+### **Step 1: Create Folder**
+```bash
+# In your project directory
+mkdir -p src/tools
+```
+
+### **Step 2: Copy Scripts**
+```bash
+# Copy all 4 scripts above into src/tools/
+# - search-files.ts
+# - organize-files.ts
+# - preview-data.ts
+# - generate-report.ts
+```
+
+### **Step 3: Update package.json**
+```json
+{
+  "scripts": {
+    "search:files": "ts-node src/tools/search-files.ts",
+    "organize:files": "ts-node src/tools/organize-files.ts",
+    "preview:data": "ts-node src/tools/preview-data.ts",
+    "report:generate": "ts-node src/tools/generate-report.ts"
+  }
+}
+```
+
+### **Step 4: Run Commands**
+
+```bash
+# 1️⃣ Find all files
+npm run search:files
+
+# 2️⃣ Organize by category
+npm run organize:files
+
+# 3️⃣ Preview specific file
+npm run preview:data
+
+# 4️⃣ Generate full report
+npm run report:generate
+```
+
+---
+
+## 📊 OUTPUT FILES
+
+```
+file-inventory.json
+  ├─ 👤 CUSTOMERS: [...]
+  ├─ 🛏️ ROOMS: [...]
+  ├─ 📅 BOOKINGS: [...]
+  ├─ 💰 PAYMENTS: [...]
+  └─ ❓ OTHER: [...]
+
+data-discovery-report.txt
+  └─ Human-readable format
+
+data-discovery-report.json
+  └─ Machine-readable format
+```
+
+---
+
+## 🎯 NEXT STEPS (After Running)
+
+### **1. Review Report**
+```
+Open data-discovery-report.txt
+- Check what files you have
+- Note the file IDs
+- Understand column names
+```
+
+### **2. Decide Action**
+```
+- Import to database?
+- Clean data first?
+- Merge with existing?
+- Archive old files?
+```
+
+### **3. Plan Migration**
+```
+From data-discovery-report:
+- Know exact columns
+- Know record counts
+- Plan transformation
+- Schedule import
+```
+
+---
+
+## ✅ WHAT YOU'LL GET
+
+```
+After running all scripts:
+
+✅ Know exactly what files you have
+✅ Know data structure (columns, types)
+✅ Know record counts
+✅ Know file IDs (for later import)
+✅ Know what's customers vs rooms vs bookings
+✅ Ready to proceed with next phase
+```
+
+---
+
+## 🚨 IMPORTANT
+
+```
+⚠️  These scripts are READ-ONLY
+    They do NOT:
+    - Delete files
+    - Modify data
+    - Import anything
+    - Change your system
+
+✅ Safe to run anytime!
+```
+
+---
+
+## 💾 FILES TO CREATE
+
+```
+src/tools/
+├── search-files.ts      (Script 1)
+├── organize-files.ts    (Script 2)
+├── preview-data.ts      (Script 3)
+└── generate-report.ts   (Script 4)
+```
+
+---
+
+**✅ Ready to discover data! 🚀**
+
+**Next: Run `npm run search:files` first!**
