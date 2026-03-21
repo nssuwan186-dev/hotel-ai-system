@@ -335,13 +335,13 @@ I'll extract the data automatically!`;
         const fileLink = await this.bot.getFileLink(fileId);
         
         // OCR
-        const analysis = await ocrService.analyzeImage(fileLink.href);
+        const analysis = await ocrService.analyzeImage(fileLink);
         
         // Create confirmation block with extracted data
         const blockId = confirmationBlockService.createReceiptBlock(
           analysis.extractedData,
           undefined,
-          fileLink.href
+          fileLink
         );
         
         const block = confirmationBlockService.getBlock(blockId);

@@ -1,0 +1,951 @@
+{
+  "👤 CUSTOMERS": [
+    {
+      "id": "1jPAES5WOCf9AEb-HdzzVyR9rGCBXQ-wdAqh0yUJ-tV0",
+      "name": "Forum Help - Input a customer number, outpu...",
+      "type": "Google Sheet",
+      "category": "👤 CUSTOMERS",
+      "modified": "N/A"
+    }
+  ],
+  "🛏️ ROOMS": [
+    {
+      "id": "1Rs1x6wPhp5KSBCKBAizJ0jHSWE771QCIb-d17M5oJUg",
+      "name": "400",
+      "type": "Google Sheet",
+      "category": "🛏️ ROOMS",
+      "modified": "N/A"
+    },
+    {
+      "id": "10gmDVR7NyeT-s95-Yv6caVD39AXvjqCh",
+      "name": "400.xlsx",
+      "type": "Excel",
+      "category": "🛏️ ROOMS",
+      "modified": "N/A"
+    }
+  ],
+  "📅 BOOKINGS": [
+    {
+      "id": "1NF_tqLC-ejr2oP6oVegMAtOy52Z6ZbuzARr2kHh4E_w",
+      "name": "Booking_Report",
+      "type": "Google Sheet",
+      "category": "📅 BOOKINGS",
+      "modified": "N/A"
+    }
+  ],
+  "💰 PAYMENTS": [],
+  "📊 TRANSACTIONS": [
+    {
+      "id": "1cpp62zFKx6s8Ou_iWnO1MgWLq0sP38QglGzHy-WiTZM",
+      "name": "hotel_accounting_system_v2.0.xlsx (Converted - 2026-02-23 06:57)",
+      "type": "Google Sheet",
+      "category": "📊 TRANSACTIONS",
+      "modified": "N/A"
+    },
+    {
+      "id": "1sMcOq6nSPfotTvnbLZswjjlM-rICLgKU",
+      "name": "hotel_accounting_system_v2.0.xlsx",
+      "type": "Excel",
+      "category": "📊 TRANSACTIONS",
+      "modified": "N/A"
+    }
+  ],
+  "❓ OTHER": [
+    {
+      "id": "1ipGQwEqhzE08UHXEbddr6UUYVVHvKrJo3RxR1VhulDA",
+      "name": "โครงสร้างโมดูลระบบบริหารจัดการโรงแรมและที่พัก",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Lk6OClOPA8p94fspQrs8-M-W080tb244U-fWGqvnApk",
+      "name": "Google Apps Script Library Database",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Rc8NXpF0i756BShARNdlvm-Ue1gz0nNgA2qefysNrE4",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1SLzGh2t_ygC3D3O-7R8xXCqybHcKQTos59ejoSjpQo8",
+      "name": "Hotel_KPI_Solo-2",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1RpJtQf3JJRkorvfA9TndIsJbyP8ksUHsVtygXTFQg-8",
+      "name": "Q1 Budget",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1J1n4fdg1Bq15icSsn9DMnhnte1mXabBzYThWULJpWaU",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1QYIGqVPzrPmu84eSz1mhgTYmB6RojxpodZ0JWLWJjCk",
+      "name": "🏨 ระบบบริหารจัดการข้อมูลโรงแรม - สรุปการทำงาน",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "19ZJS-pkLLav95d8FAsoRbn6nTqIRqirGj2XSIlg_MJU",
+      "name": "สรุปจ่ายเงินเดือน 2569",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1YllzLyTR4SbKiJ7mQQfXSmME7xXXmfSteoB-xvuwWBs",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "19hFhJr5-1pW_UDYonRzaaSiyw1TKRoBJregH6DXMDJw",
+      "name": "Hotel_ERP_Master_System",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1dg11IAJfPH9CMO3vuBwCuSwSLJ-Zun1Z7Ocjcbhxw5k",
+      "name": "Hotel_ERP_Master",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1MJ0qxN9ufjdfvO1FWM6YeXD7LG7a-3ySykRPJu-j9Ao",
+      "name": "Hotel_ERP_Master_System_Cleaned",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1TzT50nOw-M759UhiPBGb5ZbK9HLEpZ-pP-FKaeRhKQs",
+      "name": "2-3 สมุดบัญชีรายรับ-รายจ่าย",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1RXmAIM9qzsTZoti3bPOpJivsKm82T3jfLEshRbBphi0",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Tes9bQ7qyq5v4MPidprzxaXL8OuF7A6QlvK8GLAjzuY",
+      "name": "DB-Hotel-FullSystem",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1rsauSLiDj30HD7ZFsEw1Gff8Bzhhp_ARWhKIuy26Yl8",
+      "name": "ส่งประกันสังคม",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "10c8BCibkeW241V3kXWnUuMozDj5hpP6DZvuhcqhGdf8",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1rQEja06cVmPUem_rKsf-kQCpeWuVr620n8Fd_-5Ilyo",
+      "name": "Untitled",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1S45ctGDs3Mu-dZcGQTYBdlkiC5-lxvvieGZ_Iz30s4E",
+      "name": "Untitled",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1R3AleqoQ8sGVIfa-YCmRvmk_71UEid9dFeWFzuAYBc0",
+      "name": "รายงานข้อมูลผู้เข้าพักและรายรับรายจ่ายโรงแรม",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1WalZSPRJPl0gcDrBkODE2-CQlcEPAC6JuG17O21Xxmk",
+      "name": "DB-Hotel-FullSystem.xlsx (Converted - 2026-02-10 16:39)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ZZFfbtuDsjmwsg9Kj5lke0LfmthQLTNg_cXtNU4yCiw",
+      "name": "## Hotel_ERP_Master_System_v2 ##",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1VIwuQNQ2NX2IPe0Md9Wy-Tsb5vFVpX_91Bhq4R7-jGc",
+      "name": "Hotel_Management_System_Integrated",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1WiVtNo63awMil4V0LpStR7XKNkuWOEc9BQMwZfMZb_8",
+      "name": "สำเนาของ Pink Resort Management System\n",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1LasfaMw6_DGL7iFIZGd951Pexiyod4epMB8mMrFl8Ek",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1WrjzxBScQyYsuZ2Zz3tvSJZgcreDmo9Cc6S5u_C_ruE",
+      "name": "Hotel_ERP_Master_System_v2.xlsx (Converted - 2026-02-08 17:42)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ZqDVBIgiNuM8KQpdXxBS2cwc6rl27kZgcWVzVbXDEEE",
+      "name": "ตารางสรุปรายชื่อและรายการทางบัญชีรวม",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1LNAXvMctSo9UEMEfGlmdkmFuUFVSGPZDxUaBO3QCvgU",
+      "name": "DATA",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Vvhfg4Yk32Fr1TrtxRDQqh54xPUSL-xr5pt5agH0TM8",
+      "name": "สำเนาของ Template 2025 Expense Tracker (Project Version)\n",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Ke1Zz69nBZ3mmYpLArudZOV7K6I5xTtbzagiRINzs6Q",
+      "name": "Get started with Sheetgo connections add-on for Docs",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1WYI-Y3huwsQlZK4Oei8nKrPuBOcQY8GWu3gzhYuuIFY",
+      "name": "Database",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1S1RlGEujQ7_alPaHBRjOZxwtT0mEavwkBgyMfZuWKXQ",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Kj8xCY8hSaYslWjdrSRbeA68H88NKHMTAww7g_dNzIU",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1W0Dn8BCIM3iSi4cjmcBgaUjmJQi5TScouX7wDUHLG5Q",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Qd0d0-uJGzRRgUSJfkLMcDZUbkWh4j4vbTCQhBw3kXA",
+      "name": "2-1 ข้อมูลลูกค้า",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1NFm_bLoA0KjVHfWXvcmzBQyUaCmkDBimbnzAEGtXx9o",
+      "name": "ai_studio_code ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1WDdrtqQd-NwT-jE9Xlcllck0IDreJZL2-mP-SA5G1Jk",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1MqDdqV7_zditKPv4V9pPCYMHxvNPXT4_ZcpBk5PyZL4",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1XEmjMUPsxgHoM_H_URoUV7tnMI8Ji023DRhinHOvSXk",
+      "name": "DB-โรงแรม",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1KcGgDH4i_bBWC2CZLLR2t7g1i9k3UqKxWijLGi67C9I",
+      "name": "บทสรุปสำหรับผู้บริหาร: โครงการพัฒนาระบบจองโรงแรมออนไลน์",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1M_8L8XPSA_gMhPAMwWMBshBq4e5iao3Ai0ZNxGxTioA",
+      "name": "สำเนาของ Budget Planner for Monthly & Expense Tracker",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1SadNfSX8sZrt0RzQaR4gcqlDXqR7t76WDzp-6C_Z7ps",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1QRsB316UUYJY3b6f4Dl5JxAd-LHmPvWgIn8Y8MTFipw",
+      "name": "ระบบจัดการข้อมูลโรงแรมและมาตรการป้องกันความผิดพลาดทางบัญชี",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1VmK2-3xLbEEjjZFY3ASjB_tsM8VB3xCPjGE-d1hJMAk",
+      "name": "โครงสร้างคอลัมน์ระบบ Master Data สำหรับการจัดการโรงแรมอัตโนมัติ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1JS9sLHjyZ_fu2g9QzlzHvhdvVY9aaj8M1q6OawwkEWM",
+      "name": "สรุปบัญชีรายรับรายจ่าย มกราคม ถึง กุมภาพันธ์ ๒๕๖๙",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1P8XFpVU0CBEcakG8Vxap58iejsnHT3qcqWWKHSEz50s",
+      "name": "สรุปประโยชน์และฟีเจอร์ของระบบการจัดการที่พักและอัตโนมัติ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1IkeEZ1fftcC5y4lEPaHNWkrDfmOMsHzZjyZ7h7SuVMw",
+      "name": "รายงานบัญชีผู้เข้าพักและค่าธรรมเนียมบำรุง อบจ. โรงแรมวิพัฒน์โฮเทล",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1690a8n71XU0fDfpcoaIOXCbBl6ameo4IqW_ZyYDyp2U",
+      "name": "Group Loot Sheet",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "19PdbGNX5GVEbhtGtu3ZPE5gAXrEKcMARKCyAGp-dW2w",
+      "name": "Get Started with Superjoin",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1IHFdLq-8068M-p8KWbQH-qxGFN01A4qVhpKZ5ZuibyU",
+      "name": "Google Apps Script Library Database",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1uADcImEmUr42MRSnaJH2KjVqEXxlk5XTigTMwKRpt_E",
+      "name": "รายงานผู้เข้าพักโรงแรมวิวัฒน์โฮเทล กุมภาพันธ์-มีนาคม ๒๕๖๙",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1aAnYTpDNwCvCqM-f6bxeEMxY2NfxAhA4EwDrYvWMiMM",
+      "name": "รายงานผู้เข้าพัก ร.ร. 4 วิพัฒน์โฮเทล กุมภาพันธ์ 2569",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "13b_pvP3Ph1_98zY84XWJQI1EblotkmOI7hK9PtMnweA",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1FYZOa8-_4M7D0iqaJflhoodGcoKFjzmwpuPxv3LnQho",
+      "name": "Hotel_ERP_Master_System_v2.xlsx (Converted - 2026-02-08 17:56)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1IyXUQUozfZxdrvnIvsVVJEaQWhuU9zaxfIEqMYdXpKE",
+      "name": "ระบบจัดการโรงแรม_DB",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1DYV-6zG0ZAYi3NDUl4R_cWY35kuRm1vRzOHklYAZlD0",
+      "name": "DB-โรงแรม-UP",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Drg_-Tu1duroAwxa0JRMGN02ZZJXozAfHdxZJ65-j4o",
+      "name": "ระบบจัดการโรงแรม VIPAT",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "16dvAny2ROZRbcA21PLdwhqQw_bDz6qS6OOjHc73s0UU",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "12kOxugnH8kIliovsQ__4noYj9BVTTlemb4dgqgxSywE",
+      "name": "ระบบบัญชีโรงแรมวิพัฒน์โฮเทล - Ultimate Edition",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "17NCkli-magljrlJkN_GwOIi3OfMrvnYlCUuDRIuw9bk",
+      "name": "2-2 จองห้อง",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1BY4pGHVa3ifc2UDRy2JVSPqEhIr6WhJs-QjFiQP20VI",
+      "name": "ระบบจัดการโรงแรม-ใหม่",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1EbtnjKHkc7-NXe2TyA4WFcWXGmmb03b4PI49e91JuFs",
+      "name": "ระบบจัดการฐานข้อมูลโรงแรมแบบบูรณาการ (Master Database Architecture)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1GOqm6OoXPGsKLNRLGat3IKN9UjNmj6ypQkdC_EOD7Dg",
+      "name": "graphql-sheet",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ExmXEw6KX5zBqiMbqjzAyz3wfEjNYnnWtObqjcWEkGQ",
+      "name": "3-2 ฟอร์มใบเสร็จรับเงิน-ห้องพัก",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "104RXJxv-BfBihVGzDi5Cs19Upa8jCbix2LmHmRRMiJY",
+      "name": "ระบบงานสารบรรณ รับ-ส่ง-คำสั่ง-บันทึกข้อความ ปรับป้องกันการลบ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "16O1Axpkol75297n8mMoD9E9M83-B6aTNUT1Kn8MPfDY",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "18j6HewCNtHh5ruIL-7zqlt0S3OUfgh5OtyYpaWCF98g",
+      "name": "ระบบบริหารองค์กร (AI เลขาส่วนตัว)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "15uAZMB0Q82T3nfukepi6H_0yjNH01Ob8Xqvz9NIi3QU",
+      "name": "1-1 ข้อมูลห้องพัก",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "108slsObrTUaAy-0wpxXuekaFFmdcBJQBnh9lZIDBnII",
+      "name": "สำเนาของ Make Expense Tracker Template\n",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "14XmIsqfkBh7I3fF1HArFY_fQGtG62-NjguJVUW5pQeo",
+      "name": "ai_studio_code ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1IPHYIWmAMs7pV5XnE_ukUAsA5T2IoiC4eJedNiZElGA",
+      "name": "สมุดบัญชีรายรับและรายจ่ายรายวัน (1)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ImJfNsQo8A6pf4NuZ-91uNA7LVUSEP1iTADnwBPVllg",
+      "name": "📋 MASTER_DB",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1876cSW6aRdujRQYlycfnM1GVRUZzpfVkf5g56xtZaAU",
+      "name": "[MASTER] ฐานข้อมูลรายชื่อลูกค้า_รวมทุกแหล่ง_2026",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ApQXoDiwvvcGoNN1A9vUPyLlOdQDEJ-8YwfQ9qzDVdw",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "169V9I8FC2nwCRNUGUSfDNB4TBQBHacNB_6DXfMR2KpI",
+      "name": "สำเนาของ DB-โรงแรม - 20 พฤศจิกายน เวลา 17:08 น.",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "180vN3O-jPBvHt4fdy4eWkwHb6yElNfthzNN5QvvY3iA",
+      "name": "Копия \"Business Budget\"",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1GzXOVFtdEXzQKXyr2bM3PjwCq6XNRzRZ1VlA_ADI0aE",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "18xW0VPqnqpJUvQbcE33oxwqpd6H2gUSIF-TnDSFdw0E",
+      "name": "Monthly Task and Mission Tracker Template 2026",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1EEkuU-FS0z2R7hwnJcF-9Fi2r0oUphS3NMY6XOmR2t8",
+      "name": "RP-โรงแรม",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "13Tc-RHs4gumWICMLjpcOnmPq4dNE8xOged6SmsZ9p_c",
+      "name": "สำเนาของ Get started with Sheetgo connections add-on for Docs",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1H1txYTHGY7WglArRHlb2c2KqToP-vBRnzETLkHZITWs",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "134xsOSgmDAQ3o5MaD5WRxjz8G1mxn0mbvzUrbtxSV8M",
+      "name": "Vipat_Hotel_Complete_System_v2",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1226dWx--qC5tuz6Vw9gPUDJqANzZQ8g59L2uwfJzL34",
+      "name": "Hotel_CRM_Final",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1-I3TAUF3uiZlQNn-D5mv19KYdBA8jrO7Ftzjusl5Yx0",
+      "name": "ระบบงานสารบรรณ รับ-ส่ง-คำสั่ง-บันทึกข้อความ ปรับป้องกันการลบ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1DWJIuPJMJX75JRuzdDSBTSTeL_bf65Mfjn4rnps0weM",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "10PAmiNCY0VByheWMlLz8CLuBUJYHsHiet6DpGpPLOQU",
+      "name": "Hotel_System",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1wuMepedCNmvtuCzD4iV2WhxiTqCU-6Ujv1ZR-wF2E8s",
+      "name": "Hotel_ERP_Master_System_v2.xlsx (Converted - 2026-02-08 17:54)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1vU7cg_3UzWs7mFqD2XdNzmc85Qys4KsbrARQSHipa_w",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1k-W8pRMIcQ6g8daaJNlLZVaSNRVpFJNVAbnm1m3onE4",
+      "name": "ทะเบียนผู้เข้าพักและรายรับรายจ่ายโรงแรมวิพัฒน์โฮเทลดีเวลลอปเม้นท์",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1z6NQ8N0d8ex56h7lu3Qm_YA2xXX-VBALg0CAcXuxvwI",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Qf3vmP4LXqS893EjHsrpXHArKqAvH94Rm39pncTFvZw",
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1b4IOLUjFzsbfn1YhiwmoUU1w1TS4kUC8owZbwKM2VEU",
+      "name": "Hotel_Ultimate_ERP_Integrated.xlsx (Converted - 2026-02-08 15:53)",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1gxPaK0FpLfa27iTFFAH9cLRK9HBz0CiCOYBOkUc6e6Y",
+      "name": "Hotel_ERP_Master_System_v2_OVERVIEW_DATE",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1wa09Mcq0Cx7m45nQawPVzAZXQBb3mo1ugsFEjfTASDw",
+      "name": "ระบบจัดการที่พักและคุณสมบัติความปลอดภัยของ API",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ck3FzN6qshRUwubHdAwi7QvIPwZ_g2FNOWhZxIOn43o",
+      "name": "Google Apps Script Library Database",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1gpOlAqUSKaR-8LPBiy-pBdK7DiQtaKG2XSTToDEHKkg",
+      "name": "ตารางข้อมูลการบันทึกและสรุปผลลูกค้าโรงแรมรายเดือน",
+      "type": "Google Sheet",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1S7W209B9xGCHuGHmf2E-fll5KQLCH-EV",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1_1d_kVV8VbqnLnpMSxx5j5fSs80B0p1w",
+      "name": "Hotel_KPI_Solo-2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1e27Gin37NkQ0quA08z9xbryLwGobZgVe",
+      "name": "Hotel_Complete_System.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1KHUZyuCoLQv4qgLbmmORedpX6P8wQZDD",
+      "name": "DB-Hotel-FullSystem-FIXED.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "18AkoNjKUspWVgUzX604J7HkToq1eqSOs",
+      "name": "Master_Data_Feb_2026_V3_PERFECT.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "19zxGcDlRKCN3xmwLkNvN0W9ArnhWJdWV",
+      "name": "5_6158983871263153466.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ZDKOPVQUU_RYNMECKRGhPglj5lqG6Rr0",
+      "name": "Vipat_Hotel_Complete_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1UX2f5EjVY8qGUvEDnLucnzu_wqTws4y8",
+      "name": "DB-Hotel-FullSystem.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1T2hbIPoB5pxNwFmomm5ZS51vdn-Jlrkz",
+      "name": "Hotel_DB_System.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1Y8yGdmZVsPKq-pDJwV7gtQ_yhEYwPXhe",
+      "name": "โครงสร้างคอลัมน์ระบบ Master Data สำหรับการจัดการโรงแรมอัตโนมัติ.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1XhIxkwakUOiAH97XffhUQ73XqM1dXD0B",
+      "name": "Hotel_ERP_Master_System.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1CJAEKeOzIUsneKbrfMbls6Zjsfwacd_O",
+      "name": "hotel_erp_system.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1zVbTfBnTOjpfWCB8CeNtWUwXgONlJvBC",
+      "name": "วิพัฒน์โฮเทล_MasterData_กพ2569.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "18wLN-oApvHqP9LDT-bKCmYFSkMdtvnTf",
+      "name": "Vipat_GoogleSheets.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1089T57tgctDnyj5Bbvqc-bEWeNfL3OyD",
+      "name": "Hotel_ERP_Master_System.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1BuzYmOEw3BAfVC4ygx6MQOkZz_-x6yhL",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "106lLCDa3HucdGtB5buZ3tc2mPmE4rXwA",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1s5_ZKFYmy-_04hSqLLKtV40i20mfXcCB",
+      "name": "Hotel_CRM_Final.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1mrvDIGQFJB83-nmdec2ZW0L3k65D-CNs",
+      "name": "Hotel_System.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ekJGjqUvvVJYBybdDcNvJhyAGdxeun8s",
+      "name": "Hotel_Ultimate_ERP_Integrated.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1xHcNtEh9EqEzIwtxdYVXSm80fkpxIg0w",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1ygTn4Pk1BrbVb4R5qoeeuRgeiup1ol08",
+      "name": "สรุปบัญชีรายรับรายจ่าย มกราคม ถึง กุมภาพันธ์ ๒๕๖๙.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1xe3rw8TaP_jNkgtw37g-P1kXYjXCn7rv",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1wOXNh1wUuhvjgvhvJfMD_Xy38CYURw_C",
+      "name": "DB-Hotel-FullSystem.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1tKvSLvTaYQeLoL_GINgMshUJ6CrqtheT",
+      "name": "Vipat_CRM_RealData.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1l7UHVi5dQyPN5O76aTfnOiDTgFd0bGdr",
+      "name": "pdf24-IMG_20260213_090741.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1rFPKBw1I8xYyJunZqAps7QXIA_f9trKh",
+      "name": "Hotel_ERP_Master_System_v2.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1jleNgcvCoP93yqWSEborngJa-kpJHDpy",
+      "name": "pdf24-CCF_000002.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1vtvJbS9xp5_04tyencsD7qbXjyExQCnG",
+      "name": "Hotel_CRM_Final.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1c6jDmk7e85MpcFPZjI2yEUBRNLAHYWE-",
+      "name": "pdf24-CCF_000002.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1kkytdfzbyKNAjlSAvXYUfwI5P4QeHjyv",
+      "name": "Hotel_Management_System_Integrated.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    },
+    {
+      "id": "1mF13JKTP_jfNfUAtN1JD3PFYzoumfyG9",
+      "name": "2ทะเบียนผู้เข้าพัก แบบฟอร์ม.xlsx",
+      "type": "Excel",
+      "category": "❓ OTHER",
+      "modified": "N/A"
+    }
+  ]
+}

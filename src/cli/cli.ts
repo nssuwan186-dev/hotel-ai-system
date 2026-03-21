@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
-import customerService from '../../services/customer.service';
-import roomService from '../../services/room.service';
+import db from '../database/database';
 
 async function main() {
   console.log('\n🏨 Hotel AI Management - CLI\n');
@@ -10,7 +9,7 @@ async function main() {
       type: 'list',
       name: 'module',
       message: 'Select module:',
-      choices: ['Customers', 'Rooms', 'Exit']
+      choices: ['Customers', 'Rooms', 'Bookings', 'Reports', 'Exit']
     }
   ]);
 
@@ -20,6 +19,12 @@ async function main() {
       break;
     case 'Rooms':
       await roomMenu();
+      break;
+    case 'Bookings':
+      await bookingMenu();
+      break;
+    case 'Reports':
+      await reportMenu();
       break;
     case 'Exit':
       console.log('\nGoodbye! 👋\n');
@@ -47,15 +52,21 @@ async function customerMenu() {
     ]);
 
     try {
-      const customer = await customerService.createCustomer(input.name, input.phone, input.email || undefined);
-      console.log('✅ Created:', customer);
+      const code = `CUST-${Date.now()}`;
+      await db.run(
+        `INSERT INTO customers (code, name, phone, email, status) VALUES (?, ?, ?, ?, ?)`,
+        [code, input.name, input.phone, input.email || null, 'regular']
+      );
+      console.log('✅ Customer created!');
     } catch (error: any) {
       console.error('❌ Error:', error.message);
     }
   } else if (action.action === 'List') {
-    const customers = await customerService.listCustomers();
+    const customers = await db.query('SELECT * FROM customers');
     console.log('\n📋 Customers:');
-    customers.forEach((c, i) => console.log(`${i + 1}. ${c.name} (${c.phone})`));
+    customers.forEach((c: any, i: number) => {
+      console.log(`${i + 1}. ${c.name} (${c.phone}) - ${c.status}`);
+    });
     console.log();
   }
 }
@@ -71,16 +82,28 @@ async function roomMenu() {
   ]);
 
   if (action.action === 'List All') {
-    const rooms = await roomService.listRooms();
+    const rooms = await db.query('SELECT * FROM rooms');
     console.log('\n📋 Rooms:');
-    rooms.forEach((r, i) => console.log(`${i + 1}. ${r.roomNumber} - ${r.type} (${r.pricePerNight} THB)`));
+    rooms.forEach((r: any, i: number) => {
+      console.log(`${i + 1}. ${r.roomNumber} - ${r.type} (${r.pricePerNight} THB)`);
+    });
     console.log();
   } else if (action.action === 'List Available') {
-    const rooms = await roomService.getAvailableRooms();
+    const rooms = await db.query("SELECT * FROM rooms WHERE status = 'available'");
     console.log('\n✅ Available Rooms:');
-    rooms.forEach((r, i) => console.log(`${i + 1}. ${r.roomNumber} - ${r.type} (${r.pricePerNight} THB)`));
+    rooms.forEach((r: any, i: number) => {
+      console.log(`${i + 1}. ${r.roomNumber} - ${r.type} (${r.pricePerNight} THB)`);
+    });
     console.log();
   }
+}
+
+async function bookingMenu() {
+  console.log('\n📅 Booking Management (Coming Soon)\n');
+}
+
+async function reportMenu() {
+  console.log('\n📊 Reports (Coming Soon)\n');
 }
 
 main().catch(console.error);

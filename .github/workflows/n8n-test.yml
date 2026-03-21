@@ -1,0 +1,40 @@
+name: n8n Workflows Testing
+
+on:
+  push:
+    paths:
+      - 'n8n/workflows/**'
+      - '.github/workflows/n8n-test.yml'
+  pull_request:
+    paths:
+      - 'n8n/workflows/**'
+
+jobs:
+  validate-workflows:
+    name: 🔍 Validate n8n Workflows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate JSON syntax
+        run: |
+          for file in n8n/workflows/*.json; do
+            echo "Validating: $file"
+            python3 -m json.tool "$file" > /dev/null || exit 1
+          done
+        shell: bash
+
+      - name: Check workflow structure
+        run: |
+          for file in n8n/workflows/*.json; do
+            echo "Checking: $file"
+            # Check required fields
+            python3 -c "import json; data=json.load(open('$file')); assert 'name' in data and 'nodes' in data" || exit 1
+          done
+
+      - name: Upload validation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-validation-report
+          path: n8n/workflows/

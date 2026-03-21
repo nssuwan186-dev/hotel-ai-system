@@ -1,0 +1,94 @@
+{
+  "name": "Daily Operations Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        },
+        "triggerAtHour": 8,
+        "triggerAtMinute": 0
+      },
+      "id": "daily-8am",
+      "name": "Every Day at 8 AM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://host.docker.internal:3000/api/reports/daily-summary",
+        "options": {}
+      },
+      "id": "get-report",
+      "name": "Get Daily Report Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/notifications/email",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "to",
+              "value": "manager@hotel.com,frontdesk@hotel.com"
+            },
+            {
+              "name": "subject",
+              "value": "📊 รายงานปฏิบัติการประจำวัน - {{ $now.format('YYYY-MM-DD') }}"
+            },
+            {
+              "name": "body",
+              "value": "รายงานประจำวัน:\n\n✅ ผู้เข้าพักวันนี้: {{ $json.data.checkinsToday }} คน\n🏠 ห้องที่ว่าง: {{ $json.data.availableRooms }} ห้อง\n💰 รายได้วันนี้: ฿{{ $json.data.revenueToday }}\n\nดูรายละเอียดเพิ่มเติมที่: http://localhost:3000/dashboard"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "email-report",
+      "name": "Email Report to Staff",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 300]
+    }
+  ],
+  "connections": {
+    "Every Day at 8 AM": {
+      "main": [
+        [
+          {
+            "node": "Get Daily Report Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Daily Report Data": {
+      "main": [
+        [
+          {
+            "node": "Email Report to Staff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["daily-report", "email", "automation"]
+}

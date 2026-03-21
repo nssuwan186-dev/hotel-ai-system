@@ -1,0 +1,307 @@
+{
+  "👤 CUSTOMERS": [],
+  "🛏️ ROOMS": [
+    {
+      "name": "400",
+      "id": "1Rs1x6wPhp5KSBCKBAizJ0jHSWE771QCIb-d17M5oJUg",
+      "type": "Google Sheet",
+      "columns": 0,
+      "records": 22,
+      "columnNames": []
+    }
+  ],
+  "📅 BOOKINGS": [],
+  "💰 PAYMENTS": [],
+  "❓ OTHER": [
+    {
+      "name": "โครงสร้างโมดูลระบบบริหารจัดการโรงแรมและที่พัก",
+      "id": "1ipGQwEqhzE08UHXEbddr6UUYVVHvKrJo3RxR1VhulDA",
+      "type": "Google Sheet",
+      "columns": 9,
+      "records": 9,
+      "columnNames": [
+        "",
+        "",
+        "โมดูล",
+        "ชื่อไฟล์",
+        "วัตถุประสงค์หลัก",
+        "ฐานข้อมูลย่อย",
+        "ฟังก์ชันการทำงานหลัก",
+        "การเชื่อมโยงข้อมูล",
+        "สถานะการเข้าถึง (Inferred)"
+      ]
+    },
+    {
+      "name": "Google Apps Script Library Database",
+      "id": "1Lk6OClOPA8p94fspQrs8-M-W080tb244U-fWGqvnApk",
+      "type": "Google Sheet",
+      "columns": 2,
+      "records": 19,
+      "columnNames": [
+        "",
+        "Search via web app"
+      ]
+    },
+    {
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "id": "1Rc8NXpF0i756BShARNdlvm-Ue1gz0nNgA2qefysNrE4",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 11,
+      "columnNames": [
+        "โมดูล",
+        "ชื่อไฟล์",
+        "วัตถุประสงค์หลัก",
+        "ฐานข้อมูลย่อย",
+        "ฟังก์ชันการทำงานหลัก",
+        "การเชื่อมโยงข้อมูล",
+        "สถานะการเข้าถึง (Inferred)",
+        "แหล่งที่มา"
+      ]
+    },
+    {
+      "name": "Hotel_KPI_Solo-2",
+      "id": "1SLzGh2t_ygC3D3O-7R8xXCqybHcKQTos59ejoSjpQo8",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 9,
+      "columnNames": [
+        "โมดูล",
+        "ชื่อไฟล์",
+        "วัตถุประสงค์หลัก",
+        "ฐานข้อมูลย่อย",
+        "ฟังก์ชันการทำงานหลัก",
+        "การเชื่อมโยงข้อมูล",
+        "สถานะการเข้าถึง (Inferred)",
+        "แหล่งที่มา"
+      ]
+    },
+    {
+      "name": "สรุปจ่ายเงินเดือน 2569",
+      "id": "19ZJS-pkLLav95d8FAsoRbn6nTqIRqirGj2XSIlg_MJU",
+      "type": "Google Sheet",
+      "columns": 17,
+      "records": 16,
+      "columnNames": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "รายงานสรุปยอดค่าจ้าง",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "เดือน",
+        "ครั้งที่ 1",
+        "ครั้งที่ 2",
+        "พ.ศ."
+      ]
+    },
+    {
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "id": "1YllzLyTR4SbKiJ7mQQfXSmME7xXXmfSteoB-xvuwWBs",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 0,
+      "columnNames": [
+        "Folder name",
+        "Folder Path",
+        "Filename",
+        "Direct Link",
+        "File Link",
+        "Viewers",
+        "Editors",
+        "Share Status"
+      ]
+    },
+    {
+      "name": "Hotel_ERP_Master_System",
+      "id": "19hFhJr5-1pW_UDYonRzaaSiyw1TKRoBJregH6DXMDJw",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 992,
+      "columnNames": [
+        "id ลูกค้า",
+        "ชื่อลูกค้า",
+        "เบอร์โทร",
+        "ที่อยู่",
+        "ประเทศ",
+        "เลขบัตร ปชช",
+        "หมายเลข passport",
+        "ID + customer"
+      ]
+    },
+    {
+      "name": "Hotel_ERP_Master",
+      "id": "1dg11IAJfPH9CMO3vuBwCuSwSLJ-Zun1Z7Ocjcbhxw5k",
+      "type": "Google Sheet",
+      "columns": 26,
+      "records": 1,
+      "columnNames": [
+        "RCP_ID",
+        "BK_ID",
+        "Transaction_Date",
+        "Check_In_Date",
+        "Check_Out_Date",
+        "Room_ID",
+        "Customer_Name",
+        "Customer_Phone",
+        "Citizen_ID_Passport",
+        "Nationality",
+        "Address_Full",
+        "Occupation",
+        "Destination_To",
+        "Nights",
+        "Room_Rate",
+        "Total_Room_Charge",
+        "Service_Fee",
+        "Total_Income",
+        "VAT_Base",
+        "VAT_Amount",
+        "PAO_Tax_1%",
+        "Net_Revenue",
+        "Payment_Status",
+        "Remarks",
+        "Check_VAT",
+        "Check_PAO"
+      ]
+    },
+    {
+      "name": "Hotel_ERP_Master_System_Cleaned",
+      "id": "1MJ0qxN9ufjdfvO1FWM6YeXD7LG7a-3ySykRPJu-j9Ao",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 793,
+      "columnNames": [
+        "id ลูกค้า",
+        "ชื่อลูกค้า",
+        "เบอร์โทร",
+        "ที่อยู่",
+        "ประเทศ",
+        "เลขบัตร ปชช",
+        "หมายเลข passport",
+        "ID + customer"
+      ]
+    },
+    {
+      "name": "2-3 สมุดบัญชีรายรับ-รายจ่าย",
+      "id": "1TzT50nOw-M759UhiPBGb5ZbK9HLEpZ-pP-FKaeRhKQs",
+      "type": "Google Sheet",
+      "columns": 10,
+      "records": 371,
+      "columnNames": [
+        "วันที่",
+        "ชื่อรายการ",
+        "เบอร์โทร",
+        "ห้อง",
+        "คืน",
+        "จ่าย",
+        "รับ",
+        "รวม",
+        "มัดจำสด",
+        "หมายเหตุ"
+      ]
+    },
+    {
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "id": "1RXmAIM9qzsTZoti3bPOpJivsKm82T3jfLEshRbBphi0",
+      "type": "Google Sheet",
+      "columns": 7,
+      "records": 6,
+      "columnNames": [
+        "ชื่อ",
+        "บริษัท",
+        "บัญชี",
+        "บทบาท",
+        "แผนก",
+        "โทรศัพท์",
+        "โน้ต"
+      ]
+    },
+    {
+      "name": "DB-Hotel-FullSystem",
+      "id": "1Tes9bQ7qyq5v4MPidprzxaXL8OuF7A6QlvK8GLAjzuY",
+      "type": "Google Sheet",
+      "columns": 8,
+      "records": 2310,
+      "columnNames": [
+        "id ลูกค้า",
+        "ชื่อลูกค้า",
+        "เบอร์โทร",
+        "ที่อยู่",
+        "ประเทศ",
+        "เลขบัตร ปชช",
+        "หมายเลข passport",
+        "ID + customer"
+      ]
+    },
+    {
+      "name": "ส่งประกันสังคม",
+      "id": "1rsauSLiDj30HD7ZFsEw1Gff8Bzhhp_ARWhKIuy26Yl8",
+      "type": "Google Sheet",
+      "columns": 1,
+      "records": 14,
+      "columnNames": [
+        "เอกสารนี้ถูกแก้ไขโดยสคริปต์"
+      ]
+    },
+    {
+      "name": "สเปรดชีตไม่มีชื่อ",
+      "id": "10c8BCibkeW241V3kXWnUuMozDj5hpP6DZvuhcqhGdf8",
+      "type": "Google Sheet",
+      "columns": 21,
+      "records": 826,
+      "columnNames": [
+        "Booking ID",
+        "Booking Status",
+        "Product Name",
+        "Room Type",
+        "Check-in Date",
+        "Check-out Date",
+        "Main Guest",
+        "Booking Date",
+        "Total Price",
+        "Currency",
+        "Invoice Status",
+        "Pay Out Status by AscendTravel",
+        "Pay Out Date",
+        "Paid by",
+        "Paid Amount",
+        "Paid by Deposit (THB)",
+        "Tax Invoice Status",
+        "Special Condition",
+        "Special Condition Amount (THB)",
+        "Cash Back Status to AscendTravel",
+        "Cash Back Date"
+      ]
+    },
+    {
+      "name": "Untitled",
+      "id": "1rQEja06cVmPUem_rKsf-kQCpeWuVr620n8Fd_-5Ilyo",
+      "type": "Google Sheet",
+      "columns": 3,
+      "records": 3,
+      "columnNames": [
+        "รายการ",
+        "จำนวนเงิน (บาท)",
+        "สถานะ"
+      ]
+    },
+    {
+      "name": "Untitled",
+      "id": "1S45ctGDs3Mu-dZcGQTYBdlkiC5-lxvvieGZ_Iz30s4E",
+      "type": "Google Sheet",
+      "columns": 2,
+      "records": 7,
+      "columnNames": [
+        "รายการ",
+        "จำนวนเงิน (บาท)"
+      ]
+    }
+  ]
+}

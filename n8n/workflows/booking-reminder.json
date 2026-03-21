@@ -1,0 +1,130 @@
+{
+  "name": "Booking Reminder - 1 Day Before",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 24
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Every 24 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://host.docker.internal:3000/api/bookings/upcoming",
+        "options": {
+          "query": {
+            "days": 1
+          }
+        }
+      },
+      "id": "get-bookings",
+      "name": "Get Upcoming Bookings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "split-in-batches",
+      "name": "Loop Over Bookings",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/notifications/email",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "to",
+              "value": "={{ $json.customer.email }}"
+            },
+            {
+              "name": "subject",
+              "value": "แจ้งเตือน: การจองของคุณในวันพรุ่งนี้"
+            },
+            {
+              "name": "body",
+              "value": "เรียน {{ $json.customer.name }},\n\nนี่คือการแจ้งเตือนว่าการจองของคุณ:\n\nหมายเลขการจอง: {{ $json.code }}\nเช็คอิน: {{ $json.checkIn }}\nเช็คเอาท์: {{ $json.checkOut }}\nประเภทห้อง: {{ $json.room.type }}\n\nหากมีข้อสงสัย ติดต่อเราได้ที่ 02-xxx-xxxx\n\nขอบคุณครับ"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Reminder Email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [850, 300]
+    }
+  ],
+  "connections": {
+    "Every 24 Hours": {
+      "main": [
+        [
+          {
+            "node": "Get Upcoming Bookings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Upcoming Bookings": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Bookings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Bookings": {
+      "main": [
+        [
+          {
+            "node": "Send Reminder Email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Send Reminder Email": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Bookings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["booking", "reminder", "email"]
+}

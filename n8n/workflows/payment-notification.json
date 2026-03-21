@@ -1,0 +1,90 @@
+{
+  "name": "Payment Confirmation",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "payment-webhook",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Payment Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "webhookId": "payment-confirm"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/notifications/email",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "to",
+              "value": "={{ $json.body.email }}"
+            },
+            {
+              "name": "subject",
+              "value": "ยืนยันการชำระเงิน - การจอง #{{ $json.body.bookingId }}"
+            },
+            {
+              "name": "body",
+              "value": "เรียน {{ $json.body.customerName }},\n\nเราได้รับชำระเงินของคุณแล้ว\n\nจำนวนเงิน: ฿{{ $json.body.amount }}\nหมายเลขการจอง: {{ $json.body.bookingId }}\n\nขอบคุณครับ"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "send-confirmation",
+      "name": "Send Payment Confirmation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/bookings/{{ $json.body.bookingId }}/update-status",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"paymentStatus\": \"paid\"\n}",
+        "options": {}
+      },
+      "id": "update-booking",
+      "name": "Update Booking Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 300]
+    }
+  ],
+  "connections": {
+    "Payment Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send Payment Confirmation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Payment Confirmation": {
+      "main": [
+        [
+          {
+            "node": "Update Booking Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": ["payment", "webhook", "email"]
+}

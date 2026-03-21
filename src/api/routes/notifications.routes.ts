@@ -74,3 +74,31 @@ router.get('/scheduler/status', (req, res, next) => {
 });
 
 export default router;
+
+// POST send email (for n8n)
+router.post('/email', async (req, res, next) => {
+  try {
+    const { to, subject, body } = req.body;
+    
+    if (!to || !subject || !body) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Missing required fields: to, subject, body' 
+      });
+    }
+    
+    // Log email (in production, integrate with actual email service)
+    console.log(`📧 Sending email to: ${to}`);
+    console.log(`   Subject: ${subject}`);
+    console.log(`   Body: ${body.substring(0, 100)}...`);
+    
+    // For now, just log it
+    res.json({ 
+      success: true, 
+      message: 'Email logged (not sent in development)',
+      email: { to, subject, body }
+    });
+  } catch (error: any) {
+    next(error);
+  }
+});

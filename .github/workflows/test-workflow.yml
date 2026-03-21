@@ -1,0 +1,23 @@
+name: Test Workflow Setup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: 🧪 Test Setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify setup
+        run: |
+          echo "✅ GitHub Actions is working!"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"

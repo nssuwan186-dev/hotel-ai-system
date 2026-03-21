@@ -1,0 +1,221 @@
+════════════════════════════════════════════════════════════
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+           DATA DISCOVERY REPORT
+═
+
+Generated: 3/20/2026, 11:55:04 PM
+
+📊 SUMMARY
+────────────────────────────────────────────────────────────
+Total Files: 17
+Total Records: 5,409
+
+🛏️ ROOMS
+────────────────────────────────────────────────────────────
+
+  • 400
+    ID: 1Rs1x6wPhp5KSBCKBAizJ0jHSWE771QCIb-d17M5oJUg
+    Columns: 0, Records: 22
+    Fields: 
+
+❓ OTHER
+────────────────────────────────────────────────────────────
+
+  • โครงสร้างโมดูลระบบบริหารจัดการโรงแรมและที่พัก
+    ID: 1ipGQwEqhzE08UHXEbddr6UUYVVHvKrJo3RxR1VhulDA
+    Columns: 9, Records: 9
+    Fields: , , โมดูล, ชื่อไฟล์, วัตถุประสงค์หลัก, ฐานข้อมูลย่อย, ฟังก์ชันการทำงานหลัก, การเชื่อมโยงข้อมูล, สถานะการเข้าถึง (Inferred)
+
+  • Google Apps Script Library Database
+    ID: 1Lk6OClOPA8p94fspQrs8-M-W080tb244U-fWGqvnApk
+    Columns: 2, Records: 19
+    Fields: , Search via web app
+
+  • สเปรดชีตไม่มีชื่อ
+    ID: 1Rc8NXpF0i756BShARNdlvm-Ue1gz0nNgA2qefysNrE4
+    Columns: 8, Records: 11
+    Fields: โมดูล, ชื่อไฟล์, วัตถุประสงค์หลัก, ฐานข้อมูลย่อย, ฟังก์ชันการทำงานหลัก, การเชื่อมโยงข้อมูล, สถานะการเข้าถึง (Inferred), แหล่งที่มา
+
+  • Hotel_KPI_Solo-2
+    ID: 1SLzGh2t_ygC3D3O-7R8xXCqybHcKQTos59ejoSjpQo8
+    Columns: 8, Records: 9
+    Fields: โมดูล, ชื่อไฟล์, วัตถุประสงค์หลัก, ฐานข้อมูลย่อย, ฟังก์ชันการทำงานหลัก, การเชื่อมโยงข้อมูล, สถานะการเข้าถึง (Inferred), แหล่งที่มา
+
+  • สรุปจ่ายเงินเดือน 2569
+    ID: 19ZJS-pkLLav95d8FAsoRbn6nTqIRqirGj2XSIlg_MJU
+    Columns: 17, Records: 16
+    Fields: , , , , , รายงานสรุปยอดค่าจ้าง, , , , , , , , เดือน, ครั้งที่ 1, ครั้งที่ 2, พ.ศ.
+
+  • สเปรดชีตไม่มีชื่อ
+    ID: 1YllzLyTR4SbKiJ7mQQfXSmME7xXXmfSteoB-xvuwWBs
+    Columns: 8, Records: 0
+    Fields: Folder name, Folder Path, Filename, Direct Link, File Link, Viewers, Editors, Share Status
+
+  • Hotel_ERP_Master_System
+    ID: 19hFhJr5-1pW_UDYonRzaaSiyw1TKRoBJregH6DXMDJw
+    Columns: 8, Records: 992
+    Fields: id ลูกค้า, ชื่อลูกค้า, เบอร์โทร, ที่อยู่, ประเทศ, เลขบัตร ปชช, หมายเลข passport, ID + customer
+
+  • Hotel_ERP_Master
+    ID: 1dg11IAJfPH9CMO3vuBwCuSwSLJ-Zun1Z7Ocjcbhxw5k
+    Columns: 26, Records: 1
+    Fields: RCP_ID, BK_ID, Transaction_Date, Check_In_Date, Check_Out_Date, Room_ID, Customer_Name, Customer_Phone, Citizen_ID_Passport, Nationality, Address_Full, Occupation, Destination_To, Nights, Room_Rate, Total_Room_Charge, Service_Fee, Total_Income, VAT_Base, VAT_Amount, PAO_Tax_1%, Net_Revenue, Payment_Status, Remarks, Check_VAT, Check_PAO
+
+  • Hotel_ERP_Master_System_Cleaned
+    ID: 1MJ0qxN9ufjdfvO1FWM6YeXD7LG7a-3ySykRPJu-j9Ao
+    Columns: 8, Records: 793
+    Fields: id ลูกค้า, ชื่อลูกค้า, เบอร์โทร, ที่อยู่, ประเทศ, เลขบัตร ปชช, หมายเลข passport, ID + customer
+
+  • 2-3 สมุดบัญชีรายรับ-รายจ่าย
+    ID: 1TzT50nOw-M759UhiPBGb5ZbK9HLEpZ-pP-FKaeRhKQs
+    Columns: 10, Records: 371
+    Fields: วันที่, ชื่อรายการ, เบอร์โทร, ห้อง, คืน, จ่าย, รับ, รวม, มัดจำสด, หมายเหตุ
+
+  • สเปรดชีตไม่มีชื่อ
+    ID: 1RXmAIM9qzsTZoti3bPOpJivsKm82T3jfLEshRbBphi0
+    Columns: 7, Records: 6
+    Fields: ชื่อ, บริษัท, บัญชี, บทบาท, แผนก, โทรศัพท์, โน้ต
+
+  • DB-Hotel-FullSystem
+    ID: 1Tes9bQ7qyq5v4MPidprzxaXL8OuF7A6QlvK8GLAjzuY
+    Columns: 8, Records: 2,310
+    Fields: id ลูกค้า, ชื่อลูกค้า, เบอร์โทร, ที่อยู่, ประเทศ, เลขบัตร ปชช, หมายเลข passport, ID + customer
+
+  • ส่งประกันสังคม
+    ID: 1rsauSLiDj30HD7ZFsEw1Gff8Bzhhp_ARWhKIuy26Yl8
+    Columns: 1, Records: 14
+    Fields: เอกสารนี้ถูกแก้ไขโดยสคริปต์
+
+  • สเปรดชีตไม่มีชื่อ
+    ID: 10c8BCibkeW241V3kXWnUuMozDj5hpP6DZvuhcqhGdf8
+    Columns: 21, Records: 826
+    Fields: Booking ID, Booking Status, Product Name, Room Type, Check-in Date, Check-out Date, Main Guest, Booking Date, Total Price, Currency, Invoice Status, Pay Out Status by AscendTravel, Pay Out Date, Paid by, Paid Amount, Paid by Deposit (THB), Tax Invoice Status, Special Condition, Special Condition Amount (THB), Cash Back Status to AscendTravel, Cash Back Date
+
+  • Untitled
+    ID: 1rQEja06cVmPUem_rKsf-kQCpeWuVr620n8Fd_-5Ilyo
+    Columns: 3, Records: 3
+    Fields: รายการ, จำนวนเงิน (บาท), สถานะ
+
+  • Untitled
+    ID: 1S45ctGDs3Mu-dZcGQTYBdlkiC5-lxvvieGZ_Iz30s4E
+    Columns: 2, Records: 7
+    Fields: รายการ, จำนวนเงิน (บาท)
+
+════════════════════════════════════════════════════════════
